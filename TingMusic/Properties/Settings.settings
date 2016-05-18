@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="TingMusic_TingMusicAPI_TingMusicAPI" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost/TingMusic/TingMusicAPI.asmx</Value>
+      <Value Profile="(Default)">http://tingmusic.azurewebsites.net/TingMusicAPI.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

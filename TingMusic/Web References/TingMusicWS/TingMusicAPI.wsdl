@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
       <s:element name="HelloWorld">
@@ -55,6 +55,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -81,6 +82,52 @@
   <wsdl:message name="getPlayLinkSoapOut">
     <wsdl:part name="parameters" element="tns:getPlayLinkResponse" />
   </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getBillListHttpGetIn">
+    <wsdl:part name="type" type="s:string" />
+    <wsdl:part name="size" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getBillListHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getSongLinkHttpGetIn">
+    <wsdl:part name="songId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSongLinkHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getPlayLinkHttpGetIn">
+    <wsdl:part name="songId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getPlayLinkHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getBillListHttpPostIn">
+    <wsdl:part name="type" type="s:string" />
+    <wsdl:part name="size" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getBillListHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getSongLinkHttpPostIn">
+    <wsdl:part name="songId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSongLinkHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getPlayLinkHttpPostIn">
+    <wsdl:part name="songId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getPlayLinkHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:portType name="TingMusicAPISoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -97,6 +144,42 @@
     <wsdl:operation name="getPlayLink">
       <wsdl:input message="tns:getPlayLinkSoapIn" />
       <wsdl:output message="tns:getPlayLinkSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TingMusicAPIHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBillList">
+      <wsdl:input message="tns:getBillListHttpGetIn" />
+      <wsdl:output message="tns:getBillListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSongLink">
+      <wsdl:input message="tns:getSongLinkHttpGetIn" />
+      <wsdl:output message="tns:getSongLinkHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPlayLink">
+      <wsdl:input message="tns:getPlayLinkHttpGetIn" />
+      <wsdl:output message="tns:getPlayLinkHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TingMusicAPIHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBillList">
+      <wsdl:input message="tns:getBillListHttpPostIn" />
+      <wsdl:output message="tns:getBillListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSongLink">
+      <wsdl:input message="tns:getSongLinkHttpPostIn" />
+      <wsdl:output message="tns:getSongLinkHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPlayLink">
+      <wsdl:input message="tns:getPlayLinkHttpPostIn" />
+      <wsdl:output message="tns:getPlayLinkHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="TingMusicAPISoap" type="tns:TingMusicAPISoap">
@@ -177,12 +260,96 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="TingMusicAPIHttpGet" type="tns:TingMusicAPIHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillList">
+      <http:operation location="/getBillList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSongLink">
+      <http:operation location="/getSongLink" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPlayLink">
+      <http:operation location="/getPlayLink" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TingMusicAPIHttpPost" type="tns:TingMusicAPIHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillList">
+      <http:operation location="/getBillList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSongLink">
+      <http:operation location="/getSongLink" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPlayLink">
+      <http:operation location="/getPlayLink" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="TingMusicAPI">
     <wsdl:port name="TingMusicAPISoap" binding="tns:TingMusicAPISoap">
-      <soap:address location="http://localhost/TingMusic/TingMusicAPI.asmx" />
+      <soap:address location="http://tingmusic.azurewebsites.net/TingMusicAPI.asmx" />
     </wsdl:port>
     <wsdl:port name="TingMusicAPISoap12" binding="tns:TingMusicAPISoap12">
-      <soap12:address location="http://localhost/TingMusic/TingMusicAPI.asmx" />
+      <soap12:address location="http://tingmusic.azurewebsites.net/TingMusicAPI.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TingMusicAPIHttpGet" binding="tns:TingMusicAPIHttpGet">
+      <http:address location="http://tingmusic.azurewebsites.net/TingMusicAPI.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TingMusicAPIHttpPost" binding="tns:TingMusicAPIHttpPost">
+      <http:address location="http://tingmusic.azurewebsites.net/TingMusicAPI.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

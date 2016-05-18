@@ -26,7 +26,7 @@ namespace TingMusic.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/TingMusic/TingMusicAPI.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://tingmusic.azurewebsites.net/TingMusicAPI.asmx")]
         public string TingMusic_TingMusicAPI_TingMusicAPI {
             get {
                 return ((string)(this["TingMusic_TingMusicAPI_TingMusicAPI"]));
