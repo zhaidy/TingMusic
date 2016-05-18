@@ -12,9 +12,9 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <link href="dist/toolkit.min.css" rel="stylesheet" />
+    <link href="css/Custom.css" rel="stylesheet" />
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="Content/Custom.css" rel="stylesheet" />
 
 </head>
 <body>
